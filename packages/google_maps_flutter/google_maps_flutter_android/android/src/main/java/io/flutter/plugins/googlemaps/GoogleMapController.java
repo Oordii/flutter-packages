@@ -319,6 +319,7 @@ class GoogleMapController
     flutterApi.onLongPress(Convert.latLngToPigeon(latLng), new NoOpVoidResult());
   }
 
+  @Override
   public void onPoiClick(PointOfInterest poi) {
     flutterApi.onPointOfInterestTap(poi.placeId, new NoOpVoidResult());
   }
