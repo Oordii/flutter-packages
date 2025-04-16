@@ -167,6 +167,12 @@ class MethodChannelGoogleMapsFlutter extends GoogleMapsFlutterPlatform {
   }
 
   @override
+  Stream<MapPointOfInterestTapEvent> onPointOfInterestTap(
+      {required int mapId}) {
+    return _events(mapId).whereType<MapPointOfInterestTapEvent>();
+  }
+
+  @override
   Stream<ClusterTapEvent> onClusterTap({required int mapId}) {
     return _events(mapId).whereType<ClusterTapEvent>();
   }
@@ -234,6 +240,16 @@ class MethodChannelGoogleMapsFlutter extends GoogleMapsFlutterPlatform {
           mapId,
           CircleId(arguments['circleId']! as String),
         ));
+        break;
+      case 'map#onPointOfInterestTap':
+        final Map<String, Object?> arguments = _getArgumentDictionary(call);
+        _mapEventStreamController.add(MapPointOfInterestTapEvent(
+          mapId,
+          PointOfInterestId(
+            arguments['placeId']! as String,
+          ),
+        ));
+        break;
       case 'map#onTap':
         final Map<String, Object?> arguments = _getArgumentDictionary(call);
         _mapEventStreamController.add(MapTapEvent(

@@ -152,6 +152,14 @@ class CircleTapEvent extends MapEvent<CircleId> {
   CircleTapEvent(super.mapId, super.circleId);
 }
 
+/// An event fired when a [PointOfInterest] is tapped.
+class MapPointOfInterestTapEvent extends MapEvent<PointOfInterestId> {
+  /// Build an MapPoiClick Event triggered from the map represented by `mapId`.
+  ///
+  /// The `poi` of this event is the Point of Interest where the Map was pressed.
+  MapPointOfInterestTapEvent(super.mapId, super.placeId);
+}
+
 /// An event fired when a Map is tapped.
 class MapTapEvent extends _PositionedMapEvent<void> {
   /// Build an MapTap Event triggered from the map represented by `mapId`.

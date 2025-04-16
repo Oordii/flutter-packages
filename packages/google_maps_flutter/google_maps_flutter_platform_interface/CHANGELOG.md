@@ -1,3 +1,7 @@
+## 2.7.0
+
+* Adds point of interest tap event handler.
+
 ## 2.6.0
 
 * Adds support for marker clustering.
