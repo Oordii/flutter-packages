@@ -428,14 +428,12 @@
 
 }
 
-- (void)mapView:(GMSMapView *)mapView
-    didTapPOIWithPlaceID:(NSString *)placeID
+- (void)mapView:(GMSMapView *)mapView didTapPOIWithPlaceID:(NSString *)placeID
                     name:(NSString *)name
                 location:(CLLocationCoordinate2D)location {
-  [self.channel invokeMethod:@"map#onPointOfInterestTap"
-                   arguments:@{
-                     @"placeId" : placeID,
-                   }];
+  [self.dartCallbackHandler didPressAtPointOfInterest: placeID
+                   completion:^(FlutterError *_Nullable _){
+                                        }];
 }
 
 - (void)interpretMapConfiguration:(FGMPlatformMapConfiguration *)config {
