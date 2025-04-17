@@ -720,7 +720,7 @@ abstract class MapsCallbackApi {
   void onLongPress(PlatformLatLng position);
 
   /// Called when the point of interest is tapped.
-  @ObjCSelector('didTapPOIWithPlaceID:')
+  @ObjCSelector('didPressAtPointOfInterest:')
   void onPointOfInterestTap(String placeId);
 
   /// Called when a marker is tapped.

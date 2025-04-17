@@ -762,7 +762,7 @@ extern void SetUpFGMMapsApiWithSuffix(id<FlutterBinaryMessenger> binaryMessenger
 /// Called when the map, not a specifc map object, is long pressed.
 - (void)didLongPressAtPosition:(FGMPlatformLatLng *)position completion:(void (^)(FlutterError *_Nullable))completion;
 /// Called when the point of interest is tapped.
-- (void)didTapPOIWithPlaceID:(NSString *)placeId completion:(void (^)(FlutterError *_Nullable))completion;
+- (void)didPressAtPointOfInterest:(NSString *)placeId completion:(void (^)(FlutterError *_Nullable))completion;
 /// Called when a marker is tapped.
 - (void)didTapMarkerWithIdentifier:(NSString *)markerId completion:(void (^)(FlutterError *_Nullable))completion;
 /// Called when a marker drag starts.

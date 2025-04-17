@@ -2467,7 +2467,7 @@ void SetUpFGMMapsApiWithSuffix(id<FlutterBinaryMessenger> binaryMessenger, NSObj
     } 
   }];
 }
-- (void)didTapPOIWithPlaceID:(NSString *)arg_placeId completion:(void (^)(FlutterError *_Nullable))completion {
+- (void)didPressAtPointOfInterest:(NSString *)arg_placeId completion:(void (^)(FlutterError *_Nullable))completion {
   NSString *channelName = [NSString stringWithFormat:@"%@%@", @"dev.flutter.pigeon.google_maps_flutter_ios.MapsCallbackApi.onPointOfInterestTap", _messageChannelSuffix];
   FlutterBasicMessageChannel *channel =
     [FlutterBasicMessageChannel
