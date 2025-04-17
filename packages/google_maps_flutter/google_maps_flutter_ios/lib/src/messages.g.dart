@@ -2361,6 +2361,9 @@ abstract class MapsCallbackApi {
   /// Called when the map, not a specifc map object, is long pressed.
   void onLongPress(PlatformLatLng position);
 
+  /// Called when the point of interest is tapped.
+  void onPointOfInterestTap(String placeId);
+
   /// Called when a marker is tapped.
   void onMarkerTap(String markerId);
 
@@ -2500,6 +2503,31 @@ abstract class MapsCallbackApi {
               'Argument for dev.flutter.pigeon.google_maps_flutter_ios.MapsCallbackApi.onLongPress was null, expected non-null PlatformLatLng.');
           try {
             api.onLongPress(arg_position!);
+            return wrapResponse(empty: true);
+          } on PlatformException catch (e) {
+            return wrapResponse(error: e);
+          }          catch (e) {
+            return wrapResponse(error: PlatformException(code: 'error', message: e.toString()));
+          }
+        });
+      }
+    }
+    {
+      final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
+          'dev.flutter.pigeon.google_maps_flutter_ios.MapsCallbackApi.onPointOfInterestTap$messageChannelSuffix', pigeonChannelCodec,
+          binaryMessenger: binaryMessenger);
+      if (api == null) {
+        pigeonVar_channel.setMessageHandler(null);
+      } else {
+        pigeonVar_channel.setMessageHandler((Object? message) async {
+          assert(message != null,
+          'Argument for dev.flutter.pigeon.google_maps_flutter_ios.MapsCallbackApi.onPointOfInterestTap was null.');
+          final List<Object?> args = (message as List<Object?>?)!;
+          final String? arg_placeId = (args[0] as String?);
+          assert(arg_placeId != null,
+              'Argument for dev.flutter.pigeon.google_maps_flutter_ios.MapsCallbackApi.onPointOfInterestTap was null, expected non-null String.');
+          try {
+            api.onPointOfInterestTap(arg_placeId!);
             return wrapResponse(empty: true);
           } on PlatformException catch (e) {
             return wrapResponse(error: e);
